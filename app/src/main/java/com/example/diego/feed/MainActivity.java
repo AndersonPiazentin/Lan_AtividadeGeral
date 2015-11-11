@@ -25,7 +25,7 @@ public class MainActivity extends Activity {
 
         title = (EditText) findViewById(R.id.editText);
         link = (EditText) findViewById(R.id.editText2);
-        description = (EditText) findViewById(R.id.editText3);
+        description = (EditText) findyViewById(R.id.editText3);
 
         b1 = (Button) findViewById(R.id.button);
         b2 = (Button) findViewById(R.id.button2);
