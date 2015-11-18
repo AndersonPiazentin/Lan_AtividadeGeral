@@ -9,7 +9,7 @@
 
     <TextView android:text="RagazziD Feeds" android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/textview"
+        android:id="@+id/txtv_topo"
         android:textSize="35dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
@@ -18,8 +18,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Lan University"
-        android:id="@+id/textView2"
-        android:layout_below="@+id/textview"
+        android:id="@+id/txtv_bannerLan"
+        android:layout_below="@+id/txtv_topo"
         android:layout_centerHorizontal="true"
         android:textColor="#ffa500"
         android:textSize="20dp" />
@@ -27,17 +27,17 @@
     <ImageView
         android:layout_width="150px"
         android:layout_height="150px"
-        android:id="@+id/imageView3"
+        android:id="@+id/imgv_logo"
         android:src="@drawable/abc"
-        android:layout_below="@+id/textView"
+        android:layout_below="@+id/txtv_bannerLan"
         android:layout_centerHorizontal="true"
         android:theme="@style/Base.TextAppearance.AppCompat" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/editText3"
-        android:layout_below="@+id/imageView"
+        android:id="@+id/edt_titulo"
+        android:layout_below="@+id/imgv_logo"
         android:hint="Tittle"
         android:textColorHint="#000"
         android:layout_alignParentRight="true"
@@ -48,45 +48,45 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/editText25"
-        android:layout_below="@+id/editText"
-        android:layout_alignLeft="@+id/editText"
-        android:layout_alignStart="@+id/editText"
+        android:id="@+id/edt_link"
+        android:layout_below="@+id/edt_titulo"
+        android:layout_alignLeft="@+id/edt_titulo"
+        android:layout_alignStart="@+id/edt_titulo"
         android:textColorHint="#000"
         android:hint="Link"
-        android:layout_alignRight="@+id/editText"
-        android:layout_alignEnd="@+id/editText" />
+        android:layout_alignRight="@+id/edt_titulo"
+        android:layout_alignEnd="@+id/edt_titulo" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/editText36"
-        android:layout_below="@+id/editText2"
-        android:layout_alignLeft="@+id/editText2"
-        android:layout_alignStart="@+id/editText2"
+        android:id="@+id/edt_description"
+        android:layout_below="@+id/edt_link"
+        android:layout_alignLeft="@+id/edt_link"
+        android:layout_alignStart="@+id/edt_link"
         android:hint="Description"
         android:textColorHint="#000"
-        android:layout_alignRight="@+id/editText2"
-        android:layout_alignEnd="@+id/editText2" />
+        android:layout_alignRight="@+id/edt_link"
+        android:layout_alignEnd="@+id/edt_link" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Fetch"
-        android:id="@+id/button"
-        android:layout_below="@+id/editText3"
+        android:id="@+id/bnt_fetch"
+        android:layout_below="@+id/edt_description"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_toLeftOf="@+id/imageView"
-        android:layout_toStartOf="@+id/imageView" />
+        android:layout_toLeftOf="@+id/imgv_logo"
+        android:layout_toStartOf="@+id/imgv_logo" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Result"
-        android:id="@+id/button2"
-        android:layout_alignTop="@+id/button"
-        android:layout_alignRight="@+id/editText3"
-        android:layout_alignEnd="@+id/editText3" />
+        android:id="@+id/bnt_result"
+        android:layout_alignTop="@+id/bnt_fetch"
+        android:layout_alignRight="@+id/edt_description"
+        android:layout_alignEnd="@+id/edt_description" />
 
 </RelativeLayout>

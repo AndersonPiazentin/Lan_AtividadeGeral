@@ -3,14 +3,18 @@ package com.example.diego.feed;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.HashMap;
+import java.util.HashSet;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserFactory;
 
-import android.util.Log;
-
 public class HandleXML {
+    private HashMap<Integer, HashSet<String>> dados = new HashMap<Integer, HashSet<String>>();
+    private HashSet<String> hashSet;
     private String title = "title";
+    private int i = 0;
+    private int controle = 0;
     private String link = "link";
     private String description = "description";
     private String urlString = null;
@@ -33,6 +37,10 @@ public class HandleXML {
         return description;
     }
 
+    public HashMap<Integer, HashSet<String>> getDados(){
+        return this.dados;
+    }
+
     public void parseXMLAndStoreIt(XmlPullParser myParser) {
         int event;
         String text = null;
@@ -40,8 +48,11 @@ public class HandleXML {
         try {
             event = myParser.getEventType();
 
-            while (event == XmlPullParser.END_DOCUMENT) {
+            while (event != XmlPullParser.END_DOCUMENT) {
                 String name = myParser.getName();
+                if(controle == 0){
+                    hashSet = new HashSet<String>();
+                }
 
                 switch (event) {
                     case XmlPullParser.START_TAG:
@@ -54,18 +65,27 @@ public class HandleXML {
                     case XmlPullParser.END_TAG:
 
                         if (name.equals("title")) {
-                            title = text;
+                            hashSet.add(text);
+                            controle++;
                         } else if (name.equals("link")) {
-                            link = text;
-                        } else if (name.equals("description")) {
-                            description = text;
-                        } else {
+                            hashSet.add(text);
+                            controle++;
+                        } else if (name.equals("pubDate")) {
+                            hashSet.add(text);
+                            controle++;
+                        }
+
+                        if(controle > 2){
+                            dados.put(i, hashSet);
+                            i++;
+                            controle=0;
                         }
 
                         break;
                 }
 
                 event = myParser.next();
+
             }
 
             parsingComplete = false;
